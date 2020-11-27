@@ -3,8 +3,8 @@ import time
 import os
 
 import torch
-from utils.lr_scheduler import WarmupMultiStepLR
-from net import Network
+from lib.utils.lr_scheduler import WarmupMultiStepLR
+from lib.net.network import Network
 
 
 def create_logger(cfg):

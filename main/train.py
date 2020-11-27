@@ -1,17 +1,17 @@
-import _init_paths
+from main import _init_paths
 import sys
-from loss import *
-from dataset import *
-from config import cfg, update_config
-from utils.utils import (
+from lib.loss import *
+from lib.dataset import *
+from lib.config import cfg, update_config
+from lib.utils.utils import (
     create_logger,
     get_optimizer,
     get_scheduler,
     get_model,
     get_category_list,
 )
-from core.function import train_model, valid_model
-from core.combiner import Combiner
+from lib.core.function import train_model, valid_model
+from lib.core.combiner import Combiner
 
 import torch
 import os, shutil

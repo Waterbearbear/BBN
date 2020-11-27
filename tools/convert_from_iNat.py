@@ -43,6 +43,7 @@ def convert(json_file, image_root):
                           "im_width": image["width"],
                           "category_id": anno["category_id"],
                           "fpath": os.path.join(image_root, image["file_name"])})
+
     num_classes = len(all_annos["categories"])
     return {"annotations": new_annos,
             "num_classes": num_classes}
