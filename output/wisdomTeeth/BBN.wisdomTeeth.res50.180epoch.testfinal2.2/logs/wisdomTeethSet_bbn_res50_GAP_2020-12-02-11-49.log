@@ -1,0 +1,80 @@
+2020-12-02 11:49:43,467 ---------------------Cfg is set as follow--------------------
+2020-12-02 11:49:43,467 BACKBONE:
+  FREEZE: False
+  PRETRAINED_MODEL: res50
+  TYPE: bbn_res50
+CLASSIFIER:
+  BIAS: True
+  TYPE: FC
+COLOR_SPACE: RGB
+CPU_MODE: False
+DATASET:
+  DATASET: wisdomTeethSet
+  DATA_TYPE: jpg
+  IMBALANCECIFAR:
+    RANDOM_SEED: 0
+    RATIO: 0.01
+  ROOT: D:\project\zjx\wisdom tooth\data\data_final
+  TRAIN_JSON: ../jsons/wisdomTeeth_train.json
+  VALID_JSON: ../jsons/wisdomTeeth_val.json
+EVAL_MODE: False
+INPUT_SIZE: (224, 224)
+LOSS:
+  CSCE:
+    DRW_EPOCH: 160
+    SCHEDULER: default
+  LDAM:
+    DRW_EPOCH: 160
+    MAX_MARGIN: 0.5
+  LOSS_TYPE: CrossEntropy
+MODULE:
+  TYPE: GAP
+NAME: BBN.wisdomTeeth.res50.180epoch.testfinal2.2
+OUTPUT_DIR: ../output/wisdomTeeth
+PIN_MEMORY: True
+RESUME_MODE: all
+RESUME_MODEL: 
+SAVE_STEP: 5
+SHOW_STEP: 500
+TEST:
+  BATCH_SIZE: 128
+  MODEL_FILE: ./models/BBN.wisdomTeeth.res50.180epoch.best_model.pth
+  NUM_WORKERS: 16
+TRAIN:
+  BATCH_SIZE: 32
+  COMBINER:
+    TYPE: bbn_mix
+  LR_SCHEDULER:
+    COSINE_DECAY_END: 30
+    LR_FACTOR: 0.1
+    LR_STEP: [120, 160]
+    TYPE: cosine
+    WARM_EPOCH: 5
+  MAX_EPOCH: 180
+  NUM_WORKERS: 16
+  OPTIMIZER:
+    BASE_LR: 0.005
+    MOMENTUM: 0.9
+    TYPE: ADAM
+    WEIGHT_DECAY: 0.0001
+  SAMPLER:
+    DUAL_SAMPLER:
+      ENABLE: True
+      TYPE: reverse
+    TYPE: default
+    WEIGHTED_SAMPLER:
+      TYPE: balance
+  SHUFFLE: True
+  TENSORBOARD:
+    ENABLE: True
+TRANSFORMS:
+  PROCESS_DETAIL:
+    RANDOM_CROP:
+      PADDING: 4
+    RANDOM_RESIZED_CROP:
+      RATIO: (0.75, 1.333333333)
+      SCALE: (0.08, 1.0)
+  TEST_TRANSFORMS: ('shorter_resize_for_crop', 'center_crop')
+  TRAIN_TRANSFORMS: ('random_resized_crop', 'random_horizontal_flip')
+VALID_STEP: 1
+2020-12-02 11:49:43,468 -------------------------------------------------------------

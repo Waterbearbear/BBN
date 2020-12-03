@@ -3,7 +3,7 @@ import torch
 import json, os, random, time
 import cv2
 import torchvision.transforms as transforms
-from data_transform.transform_wrapper import TRANSFORMS
+from lib.data_transform.transform_wrapper import TRANSFORMS
 import numpy as np
 
 class BaseSet(Dataset):
@@ -33,7 +33,7 @@ class BaseSet(Dataset):
             raise NotImplementedError
         self.update_transform()
 
-        with open(self.json_path, "r") as f:
+        with open(self.json_path, "r",encoding='utf-8') as f:
             self.all_info = json.load(f)
         self.num_classes = self.all_info["num_classes"]
         self.data = self.all_info["annotations"]
@@ -75,11 +75,15 @@ class BaseSet(Dataset):
     def __len__(self):
         return len(self.data)
 
+    def cv_imread(self,file_path):
+        cv_img = cv2.imdecode(np.fromfile(file_path,dtype=np.uint8),-1)
+        return cv_img
+
     def imread_with_retry(self, fpath):
         retry_time = 10
         for k in range(retry_time):
             try:
-                img = cv2.imread(fpath)
+                img = self.cv_imread(fpath)
                 if img is None:
                     print("img is None, try to re-read img")
                     continue
@@ -95,6 +99,7 @@ class BaseSet(Dataset):
             img = self.imread_with_retry(fpath)
         if self.color_space == "RGB":
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            # img = cv2.cvtColor(img,cv2.COLOR_GRAY2RGB)
         return img
 
     def _get_class_dict(self):

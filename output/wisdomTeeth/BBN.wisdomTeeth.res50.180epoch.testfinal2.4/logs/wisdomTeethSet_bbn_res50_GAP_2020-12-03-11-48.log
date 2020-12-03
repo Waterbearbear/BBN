@@ -1,0 +1,657 @@
+2020-12-03 11:48:04,670 ---------------------Cfg is set as follow--------------------
+2020-12-03 11:48:04,670 BACKBONE:
+  FREEZE: False
+  PRETRAINED_MODEL: 
+  TYPE: bbn_res50
+CLASSIFIER:
+  BIAS: True
+  TYPE: FC
+COLOR_SPACE: RGB
+CPU_MODE: False
+DATASET:
+  DATASET: wisdomTeethSet
+  DATA_TYPE: jpg
+  IMBALANCECIFAR:
+    RANDOM_SEED: 0
+    RATIO: 0.01
+  ROOT: D:\project\zjx\wisdom tooth\data\data_final
+  TRAIN_JSON: ../jsons/wisdomTeeth_train.json
+  VALID_JSON: ../jsons/wisdomTeeth_val.json
+EVAL_MODE: False
+INPUT_SIZE: (140, 140)
+LOSS:
+  CSCE:
+    DRW_EPOCH: 160
+    SCHEDULER: default
+  LDAM:
+    DRW_EPOCH: 160
+    MAX_MARGIN: 0.5
+  LOSS_TYPE: CrossEntropy
+MODULE:
+  TYPE: GAP
+NAME: BBN.wisdomTeeth.res50.180epoch.testfinal2.4
+OUTPUT_DIR: ../output/wisdomTeeth
+PIN_MEMORY: True
+RESUME_MODE: all
+RESUME_MODEL: 
+SAVE_STEP: 5
+SHOW_STEP: 500
+TEST:
+  BATCH_SIZE: 128
+  MODEL_FILE: ./models/BBN.wisdomTeeth.res50.180epoch.best_model.pth
+  NUM_WORKERS: 16
+TRAIN:
+  BATCH_SIZE: 32
+  COMBINER:
+    TYPE: bbn_mix
+  LR_SCHEDULER:
+    COSINE_DECAY_END: 30
+    LR_FACTOR: 0.1
+    LR_STEP: [120, 160]
+    TYPE: cosine
+    WARM_EPOCH: 5
+  MAX_EPOCH: 180
+  NUM_WORKERS: 16
+  OPTIMIZER:
+    BASE_LR: 0.005
+    MOMENTUM: 0.9
+    TYPE: ADAM
+    WEIGHT_DECAY: 0.0001
+  SAMPLER:
+    DUAL_SAMPLER:
+      ENABLE: True
+      TYPE: reverse
+    TYPE: default
+    WEIGHTED_SAMPLER:
+      TYPE: balance
+  SHUFFLE: True
+  TENSORBOARD:
+    ENABLE: True
+TRANSFORMS:
+  PROCESS_DETAIL:
+    RANDOM_CROP:
+      PADDING: 4
+    RANDOM_RESIZED_CROP:
+      RATIO: (0.75, 1.333333333)
+      SCALE: (0.08, 1.0)
+  TEST_TRANSFORMS: ('shorter_resize_for_crop', 'center_crop')
+  TRAIN_TRANSFORMS: ('random_resized_crop', 'random_horizontal_flip')
+VALID_STEP: 1
+2020-12-03 11:48:04,671 -------------------------------------------------------------
+2020-12-03 11:48:09,304 -------------------Train start :bbn_res50  GAP  bbn_mix-------------------
+2020-12-03 11:48:40,311 Epoch:  1  Batch:  0/55  Batch_Loss:0.992  Batch_Accuracy:68.75%     
+2020-12-03 11:48:53,704 ---Epoch:  1/180   Avg_Loss:1.559   Epoch_Accuracy:60.57%   Epoch_Time: 0.74min---
+2020-12-03 11:49:22,766 ------- Valid: Epoch:  1  Valid_Loss:0.802   Valid_Acc:65.32%-------
+2020-12-03 11:49:23,139 --------------Best_Epoch:  1    Best_Acc:65.32%--------------
+2020-12-03 11:49:51,111 Epoch:  2  Batch:  0/55  Batch_Loss:0.742  Batch_Accuracy:65.62%     
+2020-12-03 11:50:05,325 ---Epoch:  2/180   Avg_Loss:0.925   Epoch_Accuracy:65.23%   Epoch_Time: 0.70min---
+2020-12-03 11:50:32,749 ------- Valid: Epoch:  2  Valid_Loss:49.643   Valid_Acc:65.77%-------
+2020-12-03 11:50:33,186 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 11:51:01,579 Epoch:  3  Batch:  0/55  Batch_Loss:0.860  Batch_Accuracy:59.37%     
+2020-12-03 11:51:16,165 ---Epoch:  3/180   Avg_Loss:0.942   Epoch_Accuracy:60.90%   Epoch_Time: 0.72min---
+2020-12-03 11:51:43,804 ------- Valid: Epoch:  3  Valid_Loss:9.513   Valid_Acc:65.77%-------
+2020-12-03 11:51:43,804 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 11:52:11,721 Epoch:  4  Batch:  0/55  Batch_Loss:0.678  Batch_Accuracy:68.74%     
+2020-12-03 11:52:26,327 ---Epoch:  4/180   Avg_Loss:0.771   Epoch_Accuracy:65.04%   Epoch_Time: 0.71min---
+2020-12-03 11:52:53,513 ------- Valid: Epoch:  4  Valid_Loss:0.841   Valid_Acc:64.86%-------
+2020-12-03 11:52:53,513 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 11:53:20,754 Epoch:  5  Batch:  0/55  Batch_Loss:0.852  Batch_Accuracy:56.23%     
+2020-12-03 11:53:35,264 ---Epoch:  5/180   Avg_Loss:0.745   Epoch_Accuracy:65.26%   Epoch_Time: 0.70min---
+2020-12-03 11:54:02,598 ------- Valid: Epoch:  5  Valid_Loss:0.852   Valid_Acc:63.51%-------
+2020-12-03 11:54:02,598 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 11:54:30,522 Epoch:  6  Batch:  0/55  Batch_Loss:0.849  Batch_Accuracy:49.97%     
+2020-12-03 11:54:44,626 ---Epoch:  6/180   Avg_Loss:0.745   Epoch_Accuracy:65.25%   Epoch_Time: 0.70min---
+2020-12-03 11:55:11,800 ------- Valid: Epoch:  6  Valid_Loss:0.875   Valid_Acc:65.77%-------
+2020-12-03 11:55:11,801 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 11:55:39,949 Epoch:  7  Batch:  0/55  Batch_Loss:0.681  Batch_Accuracy:74.94%     
+2020-12-03 11:55:54,422 ---Epoch:  7/180   Avg_Loss:0.735   Epoch_Accuracy:65.91%   Epoch_Time: 0.71min---
+2020-12-03 11:56:22,180 ------- Valid: Epoch:  7  Valid_Loss:0.983   Valid_Acc:65.77%-------
+2020-12-03 11:56:22,180 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 11:56:50,629 Epoch:  8  Batch:  0/55  Batch_Loss:0.721  Batch_Accuracy:68.68%     
+2020-12-03 11:57:05,191 ---Epoch:  8/180   Avg_Loss:0.741   Epoch_Accuracy:65.89%   Epoch_Time: 0.72min---
+2020-12-03 11:57:32,221 ------- Valid: Epoch:  8  Valid_Loss:1.191   Valid_Acc:65.77%-------
+2020-12-03 11:57:32,222 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 11:58:00,016 Epoch:  9  Batch:  0/55  Batch_Loss:0.719  Batch_Accuracy:74.88%     
+2020-12-03 11:58:14,270 ---Epoch:  9/180   Avg_Loss:0.737   Epoch_Accuracy:65.52%   Epoch_Time: 0.70min---
+2020-12-03 11:58:41,213 ------- Valid: Epoch:  9  Valid_Loss:1.027   Valid_Acc:65.77%-------
+2020-12-03 11:58:41,213 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 11:59:09,110 Epoch: 10  Batch:  0/55  Batch_Loss:0.806  Batch_Accuracy:68.62%     
+2020-12-03 11:59:23,176 ---Epoch: 10/180   Avg_Loss:0.743   Epoch_Accuracy:65.67%   Epoch_Time: 0.70min---
+2020-12-03 11:59:50,414 ------- Valid: Epoch: 10  Valid_Loss:0.818   Valid_Acc:65.32%-------
+2020-12-03 11:59:50,414 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:00:17,664 Epoch: 11  Batch:  0/55  Batch_Loss:0.533  Batch_Accuracy:81.05%     
+2020-12-03 12:00:32,074 ---Epoch: 11/180   Avg_Loss:0.738   Epoch_Accuracy:65.52%   Epoch_Time: 0.69min---
+2020-12-03 12:00:58,976 ------- Valid: Epoch: 11  Valid_Loss:0.785   Valid_Acc:65.77%-------
+2020-12-03 12:00:58,976 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:01:26,745 Epoch: 12  Batch:  0/55  Batch_Loss:0.778  Batch_Accuracy:62.32%     
+2020-12-03 12:01:41,015 ---Epoch: 12/180   Avg_Loss:0.736   Epoch_Accuracy:65.38%   Epoch_Time: 0.70min---
+2020-12-03 12:02:07,947 ------- Valid: Epoch: 12  Valid_Loss:0.940   Valid_Acc:65.32%-------
+2020-12-03 12:02:07,947 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:02:36,516 Epoch: 13  Batch:  0/55  Batch_Loss:1.072  Batch_Accuracy:43.59%     
+2020-12-03 12:02:51,107 ---Epoch: 13/180   Avg_Loss:0.740   Epoch_Accuracy:65.63%   Epoch_Time: 0.72min---
+2020-12-03 12:03:18,364 ------- Valid: Epoch: 13  Valid_Loss:1.047   Valid_Acc:60.36%-------
+2020-12-03 12:03:18,364 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:03:46,208 Epoch: 14  Batch:  0/55  Batch_Loss:0.909  Batch_Accuracy:65.35%     
+2020-12-03 12:04:00,261 ---Epoch: 14/180   Avg_Loss:0.739   Epoch_Accuracy:65.70%   Epoch_Time: 0.70min---
+2020-12-03 12:04:27,239 ------- Valid: Epoch: 14  Valid_Loss:0.896   Valid_Acc:63.06%-------
+2020-12-03 12:04:27,239 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:04:54,432 Epoch: 15  Batch:  0/55  Batch_Loss:0.663  Batch_Accuracy:71.57%     
+2020-12-03 12:05:08,925 ---Epoch: 15/180   Avg_Loss:0.744   Epoch_Accuracy:65.49%   Epoch_Time: 0.69min---
+2020-12-03 12:05:36,386 ------- Valid: Epoch: 15  Valid_Loss:1.089   Valid_Acc:31.98%-------
+2020-12-03 12:05:36,386 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:06:03,891 Epoch: 16  Batch:  0/55  Batch_Loss:0.751  Batch_Accuracy:71.49%     
+2020-12-03 12:06:18,666 ---Epoch: 16/180   Avg_Loss:0.744   Epoch_Accuracy:65.73%   Epoch_Time: 0.70min---
+2020-12-03 12:06:46,010 ------- Valid: Epoch: 16  Valid_Loss:0.838   Valid_Acc:63.51%-------
+2020-12-03 12:06:46,010 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:07:13,704 Epoch: 17  Batch:  0/55  Batch_Loss:0.701  Batch_Accuracy:65.25%     
+2020-12-03 12:07:28,285 ---Epoch: 17/180   Avg_Loss:0.742   Epoch_Accuracy:65.39%   Epoch_Time: 0.70min---
+2020-12-03 12:07:55,084 ------- Valid: Epoch: 17  Valid_Loss:0.869   Valid_Acc:60.36%-------
+2020-12-03 12:07:55,085 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:08:23,135 Epoch: 18  Batch:  0/55  Batch_Loss:0.809  Batch_Accuracy:62.07%     
+2020-12-03 12:08:37,254 ---Epoch: 18/180   Avg_Loss:0.748   Epoch_Accuracy:65.57%   Epoch_Time: 0.70min---
+2020-12-03 12:09:04,340 ------- Valid: Epoch: 18  Valid_Loss:1.145   Valid_Acc:54.95%-------
+2020-12-03 12:09:04,340 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:09:32,656 Epoch: 19  Batch:  0/55  Batch_Loss:0.723  Batch_Accuracy:71.29%     
+2020-12-03 12:09:46,754 ---Epoch: 19/180   Avg_Loss:0.749   Epoch_Accuracy:65.57%   Epoch_Time: 0.71min---
+2020-12-03 12:10:14,291 ------- Valid: Epoch: 19  Valid_Loss:0.781   Valid_Acc:63.96%-------
+2020-12-03 12:10:14,292 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:10:42,413 Epoch: 20  Batch:  0/55  Batch_Loss:0.625  Batch_Accuracy:74.32%     
+2020-12-03 12:10:57,281 ---Epoch: 20/180   Avg_Loss:0.748   Epoch_Accuracy:65.45%   Epoch_Time: 0.72min---
+2020-12-03 12:11:25,404 ------- Valid: Epoch: 20  Valid_Loss:0.774   Valid_Acc:65.77%-------
+2020-12-03 12:11:25,404 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:11:54,116 Epoch: 21  Batch:  0/55  Batch_Loss:0.898  Batch_Accuracy:61.88%     
+2020-12-03 12:12:08,415 ---Epoch: 21/180   Avg_Loss:0.749   Epoch_Accuracy:65.39%   Epoch_Time: 0.72min---
+2020-12-03 12:12:35,490 ------- Valid: Epoch: 21  Valid_Loss:0.830   Valid_Acc:65.77%-------
+2020-12-03 12:12:35,490 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:13:03,573 Epoch: 22  Batch:  0/55  Batch_Loss:0.884  Batch_Accuracy:61.85%     
+2020-12-03 12:13:17,654 ---Epoch: 22/180   Avg_Loss:0.754   Epoch_Accuracy:65.15%   Epoch_Time: 0.70min---
+2020-12-03 12:13:45,243 ------- Valid: Epoch: 22  Valid_Loss:0.837   Valid_Acc:65.77%-------
+2020-12-03 12:13:45,244 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:14:13,379 Epoch: 23  Batch:  0/55  Batch_Loss:0.609  Batch_Accuracy:83.39%     
+2020-12-03 12:14:27,801 ---Epoch: 23/180   Avg_Loss:0.754   Epoch_Accuracy:64.98%   Epoch_Time: 0.71min---
+2020-12-03 12:14:55,245 ------- Valid: Epoch: 23  Valid_Loss:0.869   Valid_Acc:65.77%-------
+2020-12-03 12:14:55,245 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:15:23,230 Epoch: 24  Batch:  0/55  Batch_Loss:0.605  Batch_Accuracy:77.09%     
+2020-12-03 12:15:37,402 ---Epoch: 24/180   Avg_Loss:0.756   Epoch_Accuracy:65.30%   Epoch_Time: 0.70min---
+2020-12-03 12:16:04,503 ------- Valid: Epoch: 24  Valid_Loss:0.777   Valid_Acc:65.77%-------
+2020-12-03 12:16:04,504 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:16:32,055 Epoch: 25  Batch:  0/55  Batch_Loss:0.779  Batch_Accuracy:58.66%     
+2020-12-03 12:16:46,557 ---Epoch: 25/180   Avg_Loss:0.759   Epoch_Accuracy:65.29%   Epoch_Time: 0.70min---
+2020-12-03 12:17:14,055 ------- Valid: Epoch: 25  Valid_Loss:0.762   Valid_Acc:65.77%-------
+2020-12-03 12:17:14,055 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:17:41,796 Epoch: 26  Batch:  0/55  Batch_Loss:0.809  Batch_Accuracy:61.62%     
+2020-12-03 12:17:56,126 ---Epoch: 26/180   Avg_Loss:0.763   Epoch_Accuracy:64.94%   Epoch_Time: 0.70min---
+2020-12-03 12:18:23,186 ------- Valid: Epoch: 26  Valid_Loss:0.758   Valid_Acc:65.77%-------
+2020-12-03 12:18:23,186 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:18:51,398 Epoch: 27  Batch:  0/55  Batch_Loss:0.654  Batch_Accuracy:73.79%     
+2020-12-03 12:19:05,648 ---Epoch: 27/180   Avg_Loss:0.763   Epoch_Accuracy:65.12%   Epoch_Time: 0.71min---
+2020-12-03 12:19:32,578 ------- Valid: Epoch: 27  Valid_Loss:0.759   Valid_Acc:65.77%-------
+2020-12-03 12:19:32,578 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:20:00,400 Epoch: 28  Batch:  0/55  Batch_Loss:0.743  Batch_Accuracy:61.36%     
+2020-12-03 12:20:14,892 ---Epoch: 28/180   Avg_Loss:0.766   Epoch_Accuracy:64.99%   Epoch_Time: 0.71min---
+2020-12-03 12:20:42,732 ------- Valid: Epoch: 28  Valid_Loss:0.760   Valid_Acc:65.77%-------
+2020-12-03 12:20:42,733 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:21:10,863 Epoch: 29  Batch:  0/55  Batch_Loss:0.785  Batch_Accuracy:55.33%     
+2020-12-03 12:21:25,316 ---Epoch: 29/180   Avg_Loss:0.770   Epoch_Accuracy:64.90%   Epoch_Time: 0.71min---
+2020-12-03 12:21:51,989 ------- Valid: Epoch: 29  Valid_Loss:0.760   Valid_Acc:65.77%-------
+2020-12-03 12:21:51,990 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:22:19,961 Epoch: 30  Batch:  0/55  Batch_Loss:0.777  Batch_Accuracy:67.37%     
+2020-12-03 12:22:34,450 ---Epoch: 30/180   Avg_Loss:0.773   Epoch_Accuracy:64.81%   Epoch_Time: 0.71min---
+2020-12-03 12:23:02,281 ------- Valid: Epoch: 30  Valid_Loss:0.767   Valid_Acc:65.77%-------
+2020-12-03 12:23:02,282 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:23:29,716 Epoch: 31  Batch:  0/55  Batch_Loss:0.892  Batch_Accuracy:61.30%     
+2020-12-03 12:23:44,649 ---Epoch: 31/180   Avg_Loss:0.778   Epoch_Accuracy:64.60%   Epoch_Time: 0.71min---
+2020-12-03 12:24:12,485 ------- Valid: Epoch: 31  Valid_Loss:0.768   Valid_Acc:65.77%-------
+2020-12-03 12:24:12,486 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:24:41,565 Epoch: 32  Batch:  0/55  Batch_Loss:0.639  Batch_Accuracy:79.37%     
+2020-12-03 12:24:56,434 ---Epoch: 32/180   Avg_Loss:0.782   Epoch_Accuracy:64.40%   Epoch_Time: 0.73min---
+2020-12-03 12:25:24,713 ------- Valid: Epoch: 32  Valid_Loss:0.775   Valid_Acc:65.77%-------
+2020-12-03 12:25:24,714 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:25:54,117 Epoch: 33  Batch:  0/55  Batch_Loss:0.746  Batch_Accuracy:64.03%     
+2020-12-03 12:26:08,807 ---Epoch: 33/180   Avg_Loss:0.785   Epoch_Accuracy:64.46%   Epoch_Time: 0.73min---
+2020-12-03 12:26:35,927 ------- Valid: Epoch: 33  Valid_Loss:0.782   Valid_Acc:65.32%-------
+2020-12-03 12:26:35,928 --------------Best_Epoch:  2    Best_Acc:65.77%--------------
+2020-12-03 12:27:02,898 Epoch: 34  Batch:  0/55  Batch_Loss:0.882  Batch_Accuracy:57.84%     
+2020-12-03 12:27:17,236 ---Epoch: 34/180   Avg_Loss:0.787   Epoch_Accuracy:64.42%   Epoch_Time: 0.69min---
+2020-12-03 12:27:43,909 ------- Valid: Epoch: 34  Valid_Loss:0.777   Valid_Acc:66.22%-------
+2020-12-03 12:27:44,368 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:28:11,456 Epoch: 35  Batch:  0/55  Batch_Loss:0.869  Batch_Accuracy:54.81%     
+2020-12-03 12:28:25,722 ---Epoch: 35/180   Avg_Loss:0.792   Epoch_Accuracy:64.14%   Epoch_Time: 0.69min---
+2020-12-03 12:28:52,846 ------- Valid: Epoch: 35  Valid_Loss:0.773   Valid_Acc:65.77%-------
+2020-12-03 12:28:52,846 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:29:20,897 Epoch: 36  Batch:  0/55  Batch_Loss:0.931  Batch_Accuracy:57.56%     
+2020-12-03 12:29:35,231 ---Epoch: 36/180   Avg_Loss:0.792   Epoch_Accuracy:64.27%   Epoch_Time: 0.71min---
+2020-12-03 12:30:01,919 ------- Valid: Epoch: 36  Valid_Loss:0.806   Valid_Acc:65.77%-------
+2020-12-03 12:30:01,920 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:30:29,285 Epoch: 37  Batch:  0/55  Batch_Loss:0.876  Batch_Accuracy:51.51%     
+2020-12-03 12:30:43,335 ---Epoch: 37/180   Avg_Loss:0.801   Epoch_Accuracy:63.98%   Epoch_Time: 0.69min---
+2020-12-03 12:31:09,874 ------- Valid: Epoch: 37  Valid_Loss:0.832   Valid_Acc:65.77%-------
+2020-12-03 12:31:09,874 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:31:37,098 Epoch: 38  Batch:  0/55  Batch_Loss:0.659  Batch_Accuracy:75.67%     
+2020-12-03 12:31:51,080 ---Epoch: 38/180   Avg_Loss:0.809   Epoch_Accuracy:63.84%   Epoch_Time: 0.69min---
+2020-12-03 12:32:17,684 ------- Valid: Epoch: 38  Valid_Loss:0.794   Valid_Acc:65.77%-------
+2020-12-03 12:32:17,684 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:32:45,109 Epoch: 39  Batch:  0/55  Batch_Loss:0.760  Batch_Accuracy:66.38%     
+2020-12-03 12:32:59,104 ---Epoch: 39/180   Avg_Loss:0.812   Epoch_Accuracy:63.77%   Epoch_Time: 0.69min---
+2020-12-03 12:33:25,614 ------- Valid: Epoch: 39  Valid_Loss:0.777   Valid_Acc:65.77%-------
+2020-12-03 12:33:25,615 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:33:52,899 Epoch: 40  Batch:  0/55  Batch_Loss:0.722  Batch_Accuracy:69.38%     
+2020-12-03 12:34:06,996 ---Epoch: 40/180   Avg_Loss:0.814   Epoch_Accuracy:63.68%   Epoch_Time: 0.69min---
+2020-12-03 12:34:34,033 ------- Valid: Epoch: 40  Valid_Loss:0.831   Valid_Acc:65.77%-------
+2020-12-03 12:34:34,033 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:35:01,457 Epoch: 41  Batch:  0/55  Batch_Loss:0.850  Batch_Accuracy:54.25%     
+2020-12-03 12:35:15,732 ---Epoch: 41/180   Avg_Loss:0.819   Epoch_Accuracy:63.37%   Epoch_Time: 0.69min---
+2020-12-03 12:35:42,468 ------- Valid: Epoch: 41  Valid_Loss:0.796   Valid_Acc:63.96%-------
+2020-12-03 12:35:42,468 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:36:09,760 Epoch: 42  Batch:  0/55  Batch_Loss:0.805  Batch_Accuracy:63.13%     
+2020-12-03 12:36:24,049 ---Epoch: 42/180   Avg_Loss:0.823   Epoch_Accuracy:63.40%   Epoch_Time: 0.69min---
+2020-12-03 12:36:50,902 ------- Valid: Epoch: 42  Valid_Loss:0.774   Valid_Acc:65.77%-------
+2020-12-03 12:36:50,902 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:37:18,507 Epoch: 43  Batch:  0/55  Batch_Loss:0.808  Batch_Accuracy:66.13%     
+2020-12-03 12:37:32,665 ---Epoch: 43/180   Avg_Loss:0.822   Epoch_Accuracy:63.39%   Epoch_Time: 0.70min---
+2020-12-03 12:37:59,547 ------- Valid: Epoch: 43  Valid_Loss:0.828   Valid_Acc:65.32%-------
+2020-12-03 12:37:59,547 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:38:26,684 Epoch: 44  Batch:  0/55  Batch_Loss:0.817  Batch_Accuracy:59.76%     
+2020-12-03 12:38:41,253 ---Epoch: 44/180   Avg_Loss:0.833   Epoch_Accuracy:63.15%   Epoch_Time: 0.70min---
+2020-12-03 12:39:08,087 ------- Valid: Epoch: 44  Valid_Loss:0.778   Valid_Acc:65.32%-------
+2020-12-03 12:39:08,088 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:39:35,779 Epoch: 45  Batch:  0/55  Batch_Loss:0.778  Batch_Accuracy:65.42%     
+2020-12-03 12:39:49,770 ---Epoch: 45/180   Avg_Loss:0.834   Epoch_Accuracy:62.96%   Epoch_Time: 0.69min---
+2020-12-03 12:40:17,078 ------- Valid: Epoch: 45  Valid_Loss:0.827   Valid_Acc:65.77%-------
+2020-12-03 12:40:17,078 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:40:45,044 Epoch: 46  Batch:  0/55  Batch_Loss:0.786  Batch_Accuracy:65.43%     
+2020-12-03 12:40:59,079 ---Epoch: 46/180   Avg_Loss:0.839   Epoch_Accuracy:62.75%   Epoch_Time: 0.70min---
+2020-12-03 12:41:25,928 ------- Valid: Epoch: 46  Valid_Loss:0.814   Valid_Acc:62.61%-------
+2020-12-03 12:41:25,928 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:41:53,588 Epoch: 47  Batch:  0/55  Batch_Loss:0.826  Batch_Accuracy:68.57%     
+2020-12-03 12:42:07,789 ---Epoch: 47/180   Avg_Loss:0.843   Epoch_Accuracy:62.67%   Epoch_Time: 0.70min---
+2020-12-03 12:42:34,664 ------- Valid: Epoch: 47  Valid_Loss:0.795   Valid_Acc:62.61%-------
+2020-12-03 12:42:34,664 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:43:02,403 Epoch: 48  Batch:  0/55  Batch_Loss:0.909  Batch_Accuracy:62.35%     
+2020-12-03 12:43:16,375 ---Epoch: 48/180   Avg_Loss:0.847   Epoch_Accuracy:62.39%   Epoch_Time: 0.70min---
+2020-12-03 12:43:43,248 ------- Valid: Epoch: 48  Valid_Loss:0.781   Valid_Acc:66.22%-------
+2020-12-03 12:43:43,248 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:44:10,616 Epoch: 49  Batch:  0/55  Batch_Loss:0.812  Batch_Accuracy:61.85%     
+2020-12-03 12:44:25,246 ---Epoch: 49/180   Avg_Loss:0.852   Epoch_Accuracy:62.20%   Epoch_Time: 0.70min---
+2020-12-03 12:44:52,141 ------- Valid: Epoch: 49  Valid_Loss:0.816   Valid_Acc:65.77%-------
+2020-12-03 12:44:52,141 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:45:19,423 Epoch: 50  Batch:  0/55  Batch_Loss:0.876  Batch_Accuracy:61.87%     
+2020-12-03 12:45:33,598 ---Epoch: 50/180   Avg_Loss:0.853   Epoch_Accuracy:62.11%   Epoch_Time: 0.69min---
+2020-12-03 12:46:01,273 ------- Valid: Epoch: 50  Valid_Loss:0.761   Valid_Acc:65.77%-------
+2020-12-03 12:46:01,273 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:46:30,440 Epoch: 51  Batch:  0/55  Batch_Loss:0.877  Batch_Accuracy:68.16%     
+2020-12-03 12:46:45,196 ---Epoch: 51/180   Avg_Loss:0.858   Epoch_Accuracy:62.16%   Epoch_Time: 0.73min---
+2020-12-03 12:47:13,220 ------- Valid: Epoch: 51  Valid_Loss:0.784   Valid_Acc:65.77%-------
+2020-12-03 12:47:13,220 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:47:43,100 Epoch: 52  Batch:  0/55  Batch_Loss:0.910  Batch_Accuracy:52.80%     
+2020-12-03 12:47:57,324 ---Epoch: 52/180   Avg_Loss:0.863   Epoch_Accuracy:61.95%   Epoch_Time: 0.74min---
+2020-12-03 12:48:25,340 ------- Valid: Epoch: 52  Valid_Loss:0.775   Valid_Acc:65.77%-------
+2020-12-03 12:48:25,340 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:48:53,748 Epoch: 53  Batch:  0/55  Batch_Loss:0.902  Batch_Accuracy:58.49%     
+2020-12-03 12:49:08,385 ---Epoch: 53/180   Avg_Loss:0.868   Epoch_Accuracy:61.70%   Epoch_Time: 0.72min---
+2020-12-03 12:49:35,573 ------- Valid: Epoch: 53  Valid_Loss:0.814   Valid_Acc:65.77%-------
+2020-12-03 12:49:35,573 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:50:02,880 Epoch: 54  Batch:  0/55  Batch_Loss:0.867  Batch_Accuracy:58.77%     
+2020-12-03 12:50:17,905 ---Epoch: 54/180   Avg_Loss:0.873   Epoch_Accuracy:61.59%   Epoch_Time: 0.71min---
+2020-12-03 12:50:45,585 ------- Valid: Epoch: 54  Valid_Loss:0.794   Valid_Acc:65.77%-------
+2020-12-03 12:50:45,585 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:51:13,622 Epoch: 55  Batch:  0/55  Batch_Loss:0.867  Batch_Accuracy:57.94%     
+2020-12-03 12:51:28,377 ---Epoch: 55/180   Avg_Loss:0.873   Epoch_Accuracy:61.52%   Epoch_Time: 0.71min---
+2020-12-03 12:51:56,500 ------- Valid: Epoch: 55  Valid_Loss:0.809   Valid_Acc:65.77%-------
+2020-12-03 12:51:56,500 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:52:25,074 Epoch: 56  Batch:  0/55  Batch_Loss:0.889  Batch_Accuracy:57.77%     
+2020-12-03 12:52:39,556 ---Epoch: 56/180   Avg_Loss:0.879   Epoch_Accuracy:61.36%   Epoch_Time: 0.72min---
+2020-12-03 12:53:07,829 ------- Valid: Epoch: 56  Valid_Loss:0.796   Valid_Acc:65.77%-------
+2020-12-03 12:53:07,829 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:53:36,629 Epoch: 57  Batch:  0/55  Batch_Loss:0.763  Batch_Accuracy:74.88%     
+2020-12-03 12:53:51,415 ---Epoch: 57/180   Avg_Loss:0.883   Epoch_Accuracy:61.08%   Epoch_Time: 0.73min---
+2020-12-03 12:54:19,718 ------- Valid: Epoch: 57  Valid_Loss:0.792   Valid_Acc:65.77%-------
+2020-12-03 12:54:19,718 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:54:48,344 Epoch: 58  Batch:  0/55  Batch_Loss:0.884  Batch_Accuracy:57.42%     
+2020-12-03 12:55:02,851 ---Epoch: 58/180   Avg_Loss:0.885   Epoch_Accuracy:60.98%   Epoch_Time: 0.72min---
+2020-12-03 12:55:30,766 ------- Valid: Epoch: 58  Valid_Loss:0.798   Valid_Acc:65.77%-------
+2020-12-03 12:55:30,766 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:55:59,503 Epoch: 59  Batch:  0/55  Batch_Loss:0.863  Batch_Accuracy:66.36%     
+2020-12-03 12:56:13,825 ---Epoch: 59/180   Avg_Loss:0.892   Epoch_Accuracy:60.80%   Epoch_Time: 0.72min---
+2020-12-03 12:56:41,762 ------- Valid: Epoch: 59  Valid_Loss:0.770   Valid_Acc:65.77%-------
+2020-12-03 12:56:41,762 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:57:10,667 Epoch: 60  Batch:  0/55  Batch_Loss:0.748  Batch_Accuracy:77.30%     
+2020-12-03 12:57:25,058 ---Epoch: 60/180   Avg_Loss:0.898   Epoch_Accuracy:60.47%   Epoch_Time: 0.72min---
+2020-12-03 12:57:53,106 ------- Valid: Epoch: 60  Valid_Loss:0.796   Valid_Acc:65.77%-------
+2020-12-03 12:57:53,106 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:58:21,397 Epoch: 61  Batch:  0/55  Batch_Loss:0.855  Batch_Accuracy:68.53%     
+2020-12-03 12:58:36,206 ---Epoch: 61/180   Avg_Loss:0.898   Epoch_Accuracy:60.41%   Epoch_Time: 0.72min---
+2020-12-03 12:59:03,752 ------- Valid: Epoch: 61  Valid_Loss:0.793   Valid_Acc:65.77%-------
+2020-12-03 12:59:03,753 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 12:59:32,028 Epoch: 62  Batch:  0/55  Batch_Loss:1.004  Batch_Accuracy:51.31%     
+2020-12-03 12:59:46,410 ---Epoch: 62/180   Avg_Loss:0.903   Epoch_Accuracy:60.06%   Epoch_Time: 0.71min---
+2020-12-03 13:00:13,770 ------- Valid: Epoch: 62  Valid_Loss:0.802   Valid_Acc:65.77%-------
+2020-12-03 13:00:13,770 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:00:42,503 Epoch: 63  Batch:  0/55  Batch_Loss:0.945  Batch_Accuracy:53.67%     
+2020-12-03 13:00:57,333 ---Epoch: 63/180   Avg_Loss:0.906   Epoch_Accuracy:60.10%   Epoch_Time: 0.73min---
+2020-12-03 13:01:25,716 ------- Valid: Epoch: 63  Valid_Loss:0.789   Valid_Acc:65.77%-------
+2020-12-03 13:01:25,717 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:01:54,563 Epoch: 64  Batch:  0/55  Batch_Loss:0.894  Batch_Accuracy:59.73%     
+2020-12-03 13:02:09,414 ---Epoch: 64/180   Avg_Loss:0.913   Epoch_Accuracy:59.76%   Epoch_Time: 0.73min---
+2020-12-03 13:02:37,227 ------- Valid: Epoch: 64  Valid_Loss:0.809   Valid_Acc:65.77%-------
+2020-12-03 13:02:37,227 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:03:05,898 Epoch: 65  Batch:  0/55  Batch_Loss:0.894  Batch_Accuracy:62.35%     
+2020-12-03 13:03:20,225 ---Epoch: 65/180   Avg_Loss:0.916   Epoch_Accuracy:59.56%   Epoch_Time: 0.72min---
+2020-12-03 13:03:48,968 ------- Valid: Epoch: 65  Valid_Loss:0.809   Valid_Acc:65.77%-------
+2020-12-03 13:03:48,968 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:04:17,976 Epoch: 66  Batch:  0/55  Batch_Loss:0.973  Batch_Accuracy:53.43%     
+2020-12-03 13:04:32,934 ---Epoch: 66/180   Avg_Loss:0.919   Epoch_Accuracy:59.50%   Epoch_Time: 0.73min---
+2020-12-03 13:05:00,682 ------- Valid: Epoch: 66  Valid_Loss:0.772   Valid_Acc:65.77%-------
+2020-12-03 13:05:00,682 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:05:29,931 Epoch: 67  Batch:  0/55  Batch_Loss:0.834  Batch_Accuracy:67.85%     
+2020-12-03 13:05:44,648 ---Epoch: 67/180   Avg_Loss:0.923   Epoch_Accuracy:59.15%   Epoch_Time: 0.73min---
+2020-12-03 13:06:12,378 ------- Valid: Epoch: 67  Valid_Loss:0.785   Valid_Acc:65.77%-------
+2020-12-03 13:06:12,379 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:06:40,622 Epoch: 68  Batch:  0/55  Batch_Loss:0.907  Batch_Accuracy:58.96%     
+2020-12-03 13:06:54,353 ---Epoch: 68/180   Avg_Loss:0.926   Epoch_Accuracy:58.99%   Epoch_Time: 0.70min---
+2020-12-03 13:07:21,225 ------- Valid: Epoch: 68  Valid_Loss:0.811   Valid_Acc:65.77%-------
+2020-12-03 13:07:21,225 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:07:49,035 Epoch: 69  Batch:  0/55  Batch_Loss:0.827  Batch_Accuracy:71.86%     
+2020-12-03 13:08:03,073 ---Epoch: 69/180   Avg_Loss:0.930   Epoch_Accuracy:58.83%   Epoch_Time: 0.70min---
+2020-12-03 13:08:30,030 ------- Valid: Epoch: 69  Valid_Loss:0.814   Valid_Acc:65.77%-------
+2020-12-03 13:08:30,030 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:08:57,892 Epoch: 70  Batch:  0/55  Batch_Loss:1.023  Batch_Accuracy:50.67%     
+2020-12-03 13:09:12,431 ---Epoch: 70/180   Avg_Loss:0.938   Epoch_Accuracy:58.38%   Epoch_Time: 0.71min---
+2020-12-03 13:09:40,349 ------- Valid: Epoch: 70  Valid_Loss:0.819   Valid_Acc:65.77%-------
+2020-12-03 13:09:40,349 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:10:08,437 Epoch: 71  Batch:  0/55  Batch_Loss:1.034  Batch_Accuracy:52.10%     
+2020-12-03 13:10:22,794 ---Epoch: 71/180   Avg_Loss:0.938   Epoch_Accuracy:58.43%   Epoch_Time: 0.71min---
+2020-12-03 13:10:50,289 ------- Valid: Epoch: 71  Valid_Loss:0.812   Valid_Acc:65.77%-------
+2020-12-03 13:10:50,289 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:11:18,224 Epoch: 72  Batch:  0/55  Batch_Loss:0.956  Batch_Accuracy:55.41%     
+2020-12-03 13:11:32,706 ---Epoch: 72/180   Avg_Loss:0.941   Epoch_Accuracy:58.25%   Epoch_Time: 0.71min---
+2020-12-03 13:12:00,024 ------- Valid: Epoch: 72  Valid_Loss:0.827   Valid_Acc:65.77%-------
+2020-12-03 13:12:00,024 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:12:28,270 Epoch: 73  Batch:  0/55  Batch_Loss:1.011  Batch_Accuracy:47.86%     
+2020-12-03 13:12:42,306 ---Epoch: 73/180   Avg_Loss:0.946   Epoch_Accuracy:57.89%   Epoch_Time: 0.70min---
+2020-12-03 13:13:09,139 ------- Valid: Epoch: 73  Valid_Loss:0.820   Valid_Acc:65.77%-------
+2020-12-03 13:13:09,139 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:13:37,175 Epoch: 74  Batch:  0/55  Batch_Loss:1.046  Batch_Accuracy:46.46%     
+2020-12-03 13:13:51,154 ---Epoch: 74/180   Avg_Loss:0.949   Epoch_Accuracy:57.70%   Epoch_Time: 0.70min---
+2020-12-03 13:14:18,208 ------- Valid: Epoch: 74  Valid_Loss:0.823   Valid_Acc:65.77%-------
+2020-12-03 13:14:18,209 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:14:45,953 Epoch: 75  Batch:  0/55  Batch_Loss:0.983  Batch_Accuracy:57.07%     
+2020-12-03 13:15:00,522 ---Epoch: 75/180   Avg_Loss:0.955   Epoch_Accuracy:57.37%   Epoch_Time: 0.71min---
+2020-12-03 13:15:27,918 ------- Valid: Epoch: 75  Valid_Loss:0.824   Valid_Acc:65.77%-------
+2020-12-03 13:15:27,918 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:15:55,051 Epoch: 76  Batch:  0/55  Batch_Loss:0.962  Batch_Accuracy:54.59%     
+2020-12-03 13:16:09,684 ---Epoch: 76/180   Avg_Loss:0.957   Epoch_Accuracy:57.27%   Epoch_Time: 0.70min---
+2020-12-03 13:16:36,660 ------- Valid: Epoch: 76  Valid_Loss:0.824   Valid_Acc:65.77%-------
+2020-12-03 13:16:36,660 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:17:04,013 Epoch: 77  Batch:  0/55  Batch_Loss:0.975  Batch_Accuracy:55.28%     
+2020-12-03 13:17:18,471 ---Epoch: 77/180   Avg_Loss:0.962   Epoch_Accuracy:56.84%   Epoch_Time: 0.70min---
+2020-12-03 13:17:45,434 ------- Valid: Epoch: 77  Valid_Loss:0.833   Valid_Acc:65.77%-------
+2020-12-03 13:17:45,435 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:18:12,914 Epoch: 78  Batch:  0/55  Batch_Loss:0.984  Batch_Accuracy:53.24%     
+2020-12-03 13:18:27,637 ---Epoch: 78/180   Avg_Loss:0.967   Epoch_Accuracy:56.64%   Epoch_Time: 0.70min---
+2020-12-03 13:18:54,629 ------- Valid: Epoch: 78  Valid_Loss:0.831   Valid_Acc:65.77%-------
+2020-12-03 13:18:54,629 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:19:22,926 Epoch: 79  Batch:  0/55  Batch_Loss:0.908  Batch_Accuracy:66.24%     
+2020-12-03 13:19:36,774 ---Epoch: 79/180   Avg_Loss:0.970   Epoch_Accuracy:56.34%   Epoch_Time: 0.70min---
+2020-12-03 13:20:03,727 ------- Valid: Epoch: 79  Valid_Loss:0.847   Valid_Acc:65.77%-------
+2020-12-03 13:20:03,728 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:20:31,680 Epoch: 80  Batch:  0/55  Batch_Loss:0.869  Batch_Accuracy:69.55%     
+2020-12-03 13:20:45,623 ---Epoch: 80/180   Avg_Loss:0.974   Epoch_Accuracy:56.08%   Epoch_Time: 0.70min---
+2020-12-03 13:21:13,244 ------- Valid: Epoch: 80  Valid_Loss:0.843   Valid_Acc:65.77%-------
+2020-12-03 13:21:13,244 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:21:40,633 Epoch: 81  Batch:  0/55  Batch_Loss:0.913  Batch_Accuracy:63.50%     
+2020-12-03 13:21:55,568 ---Epoch: 81/180   Avg_Loss:0.976   Epoch_Accuracy:55.96%   Epoch_Time: 0.71min---
+2020-12-03 13:22:22,604 ------- Valid: Epoch: 81  Valid_Loss:0.850   Valid_Acc:65.77%-------
+2020-12-03 13:22:22,604 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:22:50,410 Epoch: 82  Batch:  0/55  Batch_Loss:1.025  Batch_Accuracy:49.64%     
+2020-12-03 13:23:04,543 ---Epoch: 82/180   Avg_Loss:0.980   Epoch_Accuracy:55.79%   Epoch_Time: 0.70min---
+2020-12-03 13:23:31,455 ------- Valid: Epoch: 82  Valid_Loss:0.851   Valid_Acc:65.77%-------
+2020-12-03 13:23:31,455 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:23:59,171 Epoch: 83  Batch:  0/55  Batch_Loss:1.008  Batch_Accuracy:51.99%     
+2020-12-03 13:24:13,442 ---Epoch: 83/180   Avg_Loss:0.984   Epoch_Accuracy:55.41%   Epoch_Time: 0.70min---
+2020-12-03 13:24:40,528 ------- Valid: Epoch: 83  Valid_Loss:0.858   Valid_Acc:65.77%-------
+2020-12-03 13:24:40,528 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:25:07,784 Epoch: 84  Batch:  0/55  Batch_Loss:1.013  Batch_Accuracy:51.74%     
+2020-12-03 13:25:22,250 ---Epoch: 84/180   Avg_Loss:0.987   Epoch_Accuracy:55.12%   Epoch_Time: 0.70min---
+2020-12-03 13:25:49,119 ------- Valid: Epoch: 84  Valid_Loss:0.858   Valid_Acc:65.77%-------
+2020-12-03 13:25:49,120 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:26:16,454 Epoch: 85  Batch:  0/55  Batch_Loss:0.940  Batch_Accuracy:61.77%     
+2020-12-03 13:26:30,869 ---Epoch: 85/180   Avg_Loss:0.990   Epoch_Accuracy:54.88%   Epoch_Time: 0.70min---
+2020-12-03 13:26:58,208 ------- Valid: Epoch: 85  Valid_Loss:0.861   Valid_Acc:65.77%-------
+2020-12-03 13:26:58,208 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:27:25,558 Epoch: 86  Batch:  0/55  Batch_Loss:1.031  Batch_Accuracy:48.65%     
+2020-12-03 13:27:39,851 ---Epoch: 86/180   Avg_Loss:0.995   Epoch_Accuracy:54.65%   Epoch_Time: 0.69min---
+2020-12-03 13:28:06,679 ------- Valid: Epoch: 86  Valid_Loss:0.865   Valid_Acc:65.77%-------
+2020-12-03 13:28:06,679 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:28:34,255 Epoch: 87  Batch:  0/55  Batch_Loss:0.938  Batch_Accuracy:61.13%     
+2020-12-03 13:28:48,509 ---Epoch: 87/180   Avg_Loss:0.994   Epoch_Accuracy:54.67%   Epoch_Time: 0.70min---
+2020-12-03 13:29:15,271 ------- Valid: Epoch: 87  Valid_Loss:0.868   Valid_Acc:65.77%-------
+2020-12-03 13:29:15,272 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:29:42,637 Epoch: 88  Batch:  0/55  Batch_Loss:0.988  Batch_Accuracy:56.33%     
+2020-12-03 13:29:57,105 ---Epoch: 88/180   Avg_Loss:1.001   Epoch_Accuracy:54.13%   Epoch_Time: 0.70min---
+2020-12-03 13:30:24,407 ------- Valid: Epoch: 88  Valid_Loss:0.870   Valid_Acc:65.77%-------
+2020-12-03 13:30:24,407 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:30:51,971 Epoch: 89  Batch:  0/55  Batch_Loss:0.935  Batch_Accuracy:63.00%     
+2020-12-03 13:31:06,095 ---Epoch: 89/180   Avg_Loss:1.005   Epoch_Accuracy:53.78%   Epoch_Time: 0.69min---
+2020-12-03 13:31:33,009 ------- Valid: Epoch: 89  Valid_Loss:0.872   Valid_Acc:65.77%-------
+2020-12-03 13:31:33,009 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:32:00,774 Epoch: 90  Batch:  0/55  Batch_Loss:0.964  Batch_Accuracy:58.26%     
+2020-12-03 13:32:14,869 ---Epoch: 90/180   Avg_Loss:1.009   Epoch_Accuracy:53.43%   Epoch_Time: 0.70min---
+2020-12-03 13:32:42,651 ------- Valid: Epoch: 90  Valid_Loss:0.875   Valid_Acc:65.77%-------
+2020-12-03 13:32:42,651 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:33:10,018 Epoch: 91  Batch:  0/55  Batch_Loss:0.953  Batch_Accuracy:59.85%     
+2020-12-03 13:33:24,485 ---Epoch: 91/180   Avg_Loss:1.010   Epoch_Accuracy:53.32%   Epoch_Time: 0.70min---
+2020-12-03 13:33:51,390 ------- Valid: Epoch: 91  Valid_Loss:0.878   Valid_Acc:65.77%-------
+2020-12-03 13:33:51,390 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:34:18,797 Epoch: 92  Batch:  0/55  Batch_Loss:1.053  Batch_Accuracy:47.08%     
+2020-12-03 13:34:33,221 ---Epoch: 92/180   Avg_Loss:1.013   Epoch_Accuracy:53.11%   Epoch_Time: 0.70min---
+2020-12-03 13:34:59,975 ------- Valid: Epoch: 92  Valid_Loss:0.883   Valid_Acc:65.77%-------
+2020-12-03 13:34:59,975 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:35:26,982 Epoch: 93  Batch:  0/55  Batch_Loss:1.085  Batch_Accuracy:44.35%     
+2020-12-03 13:35:41,518 ---Epoch: 93/180   Avg_Loss:1.017   Epoch_Accuracy:52.59%   Epoch_Time: 0.69min---
+2020-12-03 13:36:08,365 ------- Valid: Epoch: 93  Valid_Loss:0.889   Valid_Acc:65.77%-------
+2020-12-03 13:36:08,365 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:36:35,883 Epoch: 94  Batch:  0/55  Batch_Loss:0.986  Batch_Accuracy:57.01%     
+2020-12-03 13:36:50,099 ---Epoch: 94/180   Avg_Loss:1.021   Epoch_Accuracy:52.17%   Epoch_Time: 0.70min---
+2020-12-03 13:37:16,959 ------- Valid: Epoch: 94  Valid_Loss:0.899   Valid_Acc:65.77%-------
+2020-12-03 13:37:16,959 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:37:44,571 Epoch: 95  Batch:  0/55  Batch_Loss:1.056  Batch_Accuracy:46.95%     
+2020-12-03 13:37:58,717 ---Epoch: 95/180   Avg_Loss:1.021   Epoch_Accuracy:52.15%   Epoch_Time: 0.70min---
+2020-12-03 13:38:26,149 ------- Valid: Epoch: 95  Valid_Loss:0.902   Valid_Acc:65.77%-------
+2020-12-03 13:38:26,150 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:38:53,397 Epoch: 96  Batch:  0/55  Batch_Loss:1.081  Batch_Accuracy:42.55%     
+2020-12-03 13:39:07,838 ---Epoch: 96/180   Avg_Loss:1.026   Epoch_Accuracy:51.71%   Epoch_Time: 0.69min---
+2020-12-03 13:39:34,613 ------- Valid: Epoch: 96  Valid_Loss:0.910   Valid_Acc:65.77%-------
+2020-12-03 13:39:34,613 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:40:02,595 Epoch: 97  Batch:  0/55  Batch_Loss:0.967  Batch_Accuracy:60.13%     
+2020-12-03 13:40:16,610 ---Epoch: 97/180   Avg_Loss:1.028   Epoch_Accuracy:51.53%   Epoch_Time: 0.70min---
+2020-12-03 13:40:43,527 ------- Valid: Epoch: 97  Valid_Loss:0.923   Valid_Acc:65.77%-------
+2020-12-03 13:40:43,528 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:41:11,455 Epoch: 98  Batch:  0/55  Batch_Loss:0.985  Batch_Accuracy:57.36%     
+2020-12-03 13:41:25,269 ---Epoch: 98/180   Avg_Loss:1.030   Epoch_Accuracy:51.16%   Epoch_Time: 0.70min---
+2020-12-03 13:41:52,080 ------- Valid: Epoch: 98  Valid_Loss:0.923   Valid_Acc:65.77%-------
+2020-12-03 13:41:52,080 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:42:19,612 Epoch: 99  Batch:  0/55  Batch_Loss:1.099  Batch_Accuracy:40.37%     
+2020-12-03 13:42:33,590 ---Epoch: 99/180   Avg_Loss:1.034   Epoch_Accuracy:50.77%   Epoch_Time: 0.69min---
+2020-12-03 13:43:00,647 ------- Valid: Epoch: 99  Valid_Loss:0.934   Valid_Acc:65.77%-------
+2020-12-03 13:43:00,647 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:43:27,662 Epoch:100  Batch:  0/55  Batch_Loss:1.065  Batch_Accuracy:45.59%     
+2020-12-03 13:43:42,347 ---Epoch:100/180   Avg_Loss:1.035   Epoch_Accuracy:50.64%   Epoch_Time: 0.69min---
+2020-12-03 13:44:09,728 ------- Valid: Epoch:100  Valid_Loss:0.938   Valid_Acc:65.77%-------
+2020-12-03 13:44:09,728 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:44:37,094 Epoch:101  Batch:  0/55  Batch_Loss:1.020  Batch_Accuracy:53.12%     
+2020-12-03 13:44:51,290 ---Epoch:101/180   Avg_Loss:1.039   Epoch_Accuracy:50.14%   Epoch_Time: 0.69min---
+2020-12-03 13:45:18,448 ------- Valid: Epoch:101  Valid_Loss:0.954   Valid_Acc:65.77%-------
+2020-12-03 13:45:18,448 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:45:45,862 Epoch:102  Batch:  0/55  Batch_Loss:0.981  Batch_Accuracy:59.00%     
+2020-12-03 13:45:59,971 ---Epoch:102/180   Avg_Loss:1.042   Epoch_Accuracy:49.69%   Epoch_Time: 0.69min---
+2020-12-03 13:46:26,820 ------- Valid: Epoch:102  Valid_Loss:0.942   Valid_Acc:65.77%-------
+2020-12-03 13:46:26,821 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:46:54,326 Epoch:103  Batch:  0/55  Batch_Loss:1.075  Batch_Accuracy:44.74%     
+2020-12-03 13:47:08,292 ---Epoch:103/180   Avg_Loss:1.041   Epoch_Accuracy:49.88%   Epoch_Time: 0.69min---
+2020-12-03 13:47:35,062 ------- Valid: Epoch:103  Valid_Loss:0.941   Valid_Acc:65.77%-------
+2020-12-03 13:47:35,062 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:48:02,785 Epoch:104  Batch:  0/55  Batch_Loss:1.002  Batch_Accuracy:55.11%     
+2020-12-03 13:48:16,766 ---Epoch:104/180   Avg_Loss:1.047   Epoch_Accuracy:49.17%   Epoch_Time: 0.70min---
+2020-12-03 13:48:43,680 ------- Valid: Epoch:104  Valid_Loss:0.961   Valid_Acc:65.77%-------
+2020-12-03 13:48:43,680 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:49:11,239 Epoch:105  Batch:  0/55  Batch_Loss:0.968  Batch_Accuracy:59.28%     
+2020-12-03 13:49:25,266 ---Epoch:105/180   Avg_Loss:1.047   Epoch_Accuracy:49.01%   Epoch_Time: 0.69min---
+2020-12-03 13:49:52,534 ------- Valid: Epoch:105  Valid_Loss:0.963   Valid_Acc:65.77%-------
+2020-12-03 13:49:52,534 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:50:20,467 Epoch:106  Batch:  0/55  Batch_Loss:1.018  Batch_Accuracy:52.93%     
+2020-12-03 13:50:34,317 ---Epoch:106/180   Avg_Loss:1.049   Epoch_Accuracy:48.83%   Epoch_Time: 0.70min---
+2020-12-03 13:51:01,124 ------- Valid: Epoch:106  Valid_Loss:0.976   Valid_Acc:65.77%-------
+2020-12-03 13:51:01,124 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:51:28,743 Epoch:107  Batch:  0/55  Batch_Loss:1.009  Batch_Accuracy:53.93%     
+2020-12-03 13:51:42,670 ---Epoch:107/180   Avg_Loss:1.051   Epoch_Accuracy:48.25%   Epoch_Time: 0.69min---
+2020-12-03 13:52:09,445 ------- Valid: Epoch:107  Valid_Loss:0.958   Valid_Acc:65.77%-------
+2020-12-03 13:52:09,445 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:52:36,942 Epoch:108  Batch:  0/55  Batch_Loss:1.031  Batch_Accuracy:52.20%     
+2020-12-03 13:52:51,102 ---Epoch:108/180   Avg_Loss:1.052   Epoch_Accuracy:48.07%   Epoch_Time: 0.69min---
+2020-12-03 13:53:17,931 ------- Valid: Epoch:108  Valid_Loss:0.989   Valid_Acc:65.77%-------
+2020-12-03 13:53:17,931 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:53:45,219 Epoch:109  Batch:  0/55  Batch_Loss:1.092  Batch_Accuracy:42.06%     
+2020-12-03 13:53:59,461 ---Epoch:109/180   Avg_Loss:1.055   Epoch_Accuracy:47.55%   Epoch_Time: 0.69min---
+2020-12-03 13:54:26,342 ------- Valid: Epoch:109  Valid_Loss:0.994   Valid_Acc:65.77%-------
+2020-12-03 13:54:26,342 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:54:53,878 Epoch:110  Batch:  0/55  Batch_Loss:1.028  Batch_Accuracy:49.26%     
+2020-12-03 13:55:07,834 ---Epoch:110/180   Avg_Loss:1.056   Epoch_Accuracy:47.15%   Epoch_Time: 0.69min---
+2020-12-03 13:55:35,121 ------- Valid: Epoch:110  Valid_Loss:1.009   Valid_Acc:65.77%-------
+2020-12-03 13:55:35,121 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:56:02,807 Epoch:111  Batch:  0/55  Batch_Loss:1.070  Batch_Accuracy:46.72%     
+2020-12-03 13:56:16,705 ---Epoch:111/180   Avg_Loss:1.059   Epoch_Accuracy:46.81%   Epoch_Time: 0.69min---
+2020-12-03 13:56:43,611 ------- Valid: Epoch:111  Valid_Loss:1.003   Valid_Acc:65.77%-------
+2020-12-03 13:56:43,611 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:57:10,539 Epoch:112  Batch:  0/55  Batch_Loss:1.044  Batch_Accuracy:49.50%     
+2020-12-03 13:57:25,118 ---Epoch:112/180   Avg_Loss:1.059   Epoch_Accuracy:46.61%   Epoch_Time: 0.69min---
+2020-12-03 13:57:51,978 ------- Valid: Epoch:112  Valid_Loss:0.989   Valid_Acc:65.77%-------
+2020-12-03 13:57:51,978 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:58:19,339 Epoch:113  Batch:  0/55  Batch_Loss:1.039  Batch_Accuracy:49.15%     
+2020-12-03 13:58:33,479 ---Epoch:113/180   Avg_Loss:1.061   Epoch_Accuracy:46.17%   Epoch_Time: 0.69min---
+2020-12-03 13:59:00,260 ------- Valid: Epoch:113  Valid_Loss:1.009   Valid_Acc:65.77%-------
+2020-12-03 13:59:00,261 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 13:59:27,532 Epoch:114  Batch:  0/55  Batch_Loss:1.024  Batch_Accuracy:52.06%     
+2020-12-03 13:59:41,682 ---Epoch:114/180   Avg_Loss:1.062   Epoch_Accuracy:45.88%   Epoch_Time: 0.69min---
+2020-12-03 14:00:08,482 ------- Valid: Epoch:114  Valid_Loss:1.000   Valid_Acc:65.77%-------
+2020-12-03 14:00:08,482 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:00:36,313 Epoch:115  Batch:  0/55  Batch_Loss:1.055  Batch_Accuracy:47.43%     
+2020-12-03 14:00:50,106 ---Epoch:115/180   Avg_Loss:1.063   Epoch_Accuracy:45.39%   Epoch_Time: 0.69min---
+2020-12-03 14:01:17,442 ------- Valid: Epoch:115  Valid_Loss:1.013   Valid_Acc:65.77%-------
+2020-12-03 14:01:17,443 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:01:45,252 Epoch:116  Batch:  0/55  Batch_Loss:1.039  Batch_Accuracy:48.11%     
+2020-12-03 14:01:59,175 ---Epoch:116/180   Avg_Loss:1.063   Epoch_Accuracy:45.27%   Epoch_Time: 0.70min---
+2020-12-03 14:02:25,953 ------- Valid: Epoch:116  Valid_Loss:1.046   Valid_Acc:65.77%-------
+2020-12-03 14:02:25,953 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:02:53,565 Epoch:117  Batch:  0/55  Batch_Loss:0.995  Batch_Accuracy:55.99%     
+2020-12-03 14:03:07,469 ---Epoch:117/180   Avg_Loss:1.064   Epoch_Accuracy:44.67%   Epoch_Time: 0.69min---
+2020-12-03 14:03:34,264 ------- Valid: Epoch:117  Valid_Loss:1.044   Valid_Acc:65.77%-------
+2020-12-03 14:03:34,264 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:04:01,914 Epoch:118  Batch:  0/55  Batch_Loss:1.095  Batch_Accuracy:41.19%     
+2020-12-03 14:04:16,001 ---Epoch:118/180   Avg_Loss:1.065   Epoch_Accuracy:44.59%   Epoch_Time: 0.70min---
+2020-12-03 14:04:42,808 ------- Valid: Epoch:118  Valid_Loss:1.039   Valid_Acc:65.77%-------
+2020-12-03 14:04:42,808 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:05:10,674 Epoch:119  Batch:  0/55  Batch_Loss:1.069  Batch_Accuracy:40.88%     
+2020-12-03 14:05:24,571 ---Epoch:119/180   Avg_Loss:1.064   Epoch_Accuracy:44.02%   Epoch_Time: 0.70min---
+2020-12-03 14:05:51,380 ------- Valid: Epoch:119  Valid_Loss:1.147   Valid_Acc:31.98%-------
+2020-12-03 14:05:51,381 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:06:18,975 Epoch:120  Batch:  0/55  Batch_Loss:1.056  Batch_Accuracy:45.52%     
+2020-12-03 14:06:33,037 ---Epoch:120/180   Avg_Loss:1.066   Epoch_Accuracy:43.53%   Epoch_Time: 0.69min---
+2020-12-03 14:07:00,329 ------- Valid: Epoch:120  Valid_Loss:1.076   Valid_Acc:65.77%-------
+2020-12-03 14:07:00,330 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:07:27,662 Epoch:121  Batch:  0/55  Batch_Loss:1.029  Batch_Accuracy:49.12%     
+2020-12-03 14:07:41,910 ---Epoch:121/180   Avg_Loss:1.067   Epoch_Accuracy:43.35%   Epoch_Time: 0.69min---
+2020-12-03 14:08:08,665 ------- Valid: Epoch:121  Valid_Loss:1.063   Valid_Acc:65.77%-------
+2020-12-03 14:08:08,665 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:08:35,518 Epoch:122  Batch:  0/55  Batch_Loss:1.071  Batch_Accuracy:43.89%     
+2020-12-03 14:08:50,128 ---Epoch:122/180   Avg_Loss:1.065   Epoch_Accuracy:42.86%   Epoch_Time: 0.69min---
+2020-12-03 14:09:16,912 ------- Valid: Epoch:122  Valid_Loss:1.110   Valid_Acc:54.95%-------
+2020-12-03 14:09:16,913 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:09:44,403 Epoch:123  Batch:  0/55  Batch_Loss:1.051  Batch_Accuracy:47.46%     
+2020-12-03 14:09:58,540 ---Epoch:123/180   Avg_Loss:1.070   Epoch_Accuracy:42.54%   Epoch_Time: 0.69min---
+2020-12-03 14:10:25,274 ------- Valid: Epoch:123  Valid_Loss:1.043   Valid_Acc:65.77%-------
+2020-12-03 14:10:25,274 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:10:52,543 Epoch:124  Batch:  0/55  Batch_Loss:1.029  Batch_Accuracy:47.82%     
+2020-12-03 14:11:06,856 ---Epoch:124/180   Avg_Loss:1.069   Epoch_Accuracy:42.15%   Epoch_Time: 0.69min---
+2020-12-03 14:11:33,681 ------- Valid: Epoch:124  Valid_Loss:1.097   Valid_Acc:51.80%-------
+2020-12-03 14:11:33,681 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:12:01,374 Epoch:125  Batch:  0/55  Batch_Loss:1.104  Batch_Accuracy:34.63%     
+2020-12-03 14:12:15,378 ---Epoch:125/180   Avg_Loss:1.066   Epoch_Accuracy:41.89%   Epoch_Time: 0.69min---
+2020-12-03 14:12:42,543 ------- Valid: Epoch:125  Valid_Loss:1.100   Valid_Acc:65.77%-------
+2020-12-03 14:12:42,543 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:13:09,831 Epoch:126  Batch:  0/55  Batch_Loss:1.027  Batch_Accuracy:45.02%     
+2020-12-03 14:13:23,965 ---Epoch:126/180   Avg_Loss:1.066   Epoch_Accuracy:40.73%   Epoch_Time: 0.69min---
+2020-12-03 14:13:50,704 ------- Valid: Epoch:126  Valid_Loss:1.120   Valid_Acc:58.56%-------
+2020-12-03 14:13:50,704 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:14:17,782 Epoch:127  Batch:  0/55  Batch_Loss:1.149  Batch_Accuracy:30.75%     
+2020-12-03 14:14:32,205 ---Epoch:127/180   Avg_Loss:1.064   Epoch_Accuracy:41.04%   Epoch_Time: 0.69min---
+2020-12-03 14:14:58,882 ------- Valid: Epoch:127  Valid_Loss:1.113   Valid_Acc:65.77%-------
+2020-12-03 14:14:58,883 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:15:26,432 Epoch:128  Batch:  0/55  Batch_Loss:1.057  Batch_Accuracy:40.42%     
+2020-12-03 14:15:40,872 ---Epoch:128/180   Avg_Loss:1.066   Epoch_Accuracy:40.92%   Epoch_Time: 0.70min---
+2020-12-03 14:16:07,719 ------- Valid: Epoch:128  Valid_Loss:1.100   Valid_Acc:65.77%-------
+2020-12-03 14:16:07,719 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:16:34,848 Epoch:129  Batch:  0/55  Batch_Loss:1.084  Batch_Accuracy:40.02%     
+2020-12-03 14:16:49,293 ---Epoch:129/180   Avg_Loss:1.064   Epoch_Accuracy:40.17%   Epoch_Time: 0.69min---
+2020-12-03 14:17:16,032 ------- Valid: Epoch:129  Valid_Loss:1.114   Valid_Acc:62.61%-------
+2020-12-03 14:17:16,032 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:17:43,285 Epoch:130  Batch:  0/55  Batch_Loss:1.049  Batch_Accuracy:41.45%     
+2020-12-03 14:17:57,559 ---Epoch:130/180   Avg_Loss:1.063   Epoch_Accuracy:39.53%   Epoch_Time: 0.69min---
+2020-12-03 14:18:24,763 ------- Valid: Epoch:130  Valid_Loss:1.180   Valid_Acc: 2.25%-------
+2020-12-03 14:18:24,764 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:18:51,712 Epoch:131  Batch:  0/55  Batch_Loss:1.069  Batch_Accuracy:39.61%     
+2020-12-03 14:19:06,183 ---Epoch:131/180   Avg_Loss:1.062   Epoch_Accuracy:39.17%   Epoch_Time: 0.69min---
+2020-12-03 14:19:33,848 ------- Valid: Epoch:131  Valid_Loss:1.152   Valid_Acc: 2.25%-------
+2020-12-03 14:19:33,849 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:20:02,114 Epoch:132  Batch:  0/55  Batch_Loss:1.072  Batch_Accuracy:43.75%     
+2020-12-03 14:20:16,415 ---Epoch:132/180   Avg_Loss:1.061   Epoch_Accuracy:40.26%   Epoch_Time: 0.71min---
+2020-12-03 14:20:44,955 ------- Valid: Epoch:132  Valid_Loss:1.158   Valid_Acc: 2.25%-------
+2020-12-03 14:20:44,956 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:21:13,759 Epoch:133  Batch:  0/55  Batch_Loss:1.111  Batch_Accuracy:44.37%     
+2020-12-03 14:21:28,577 ---Epoch:133/180   Avg_Loss:1.058   Epoch_Accuracy:40.72%   Epoch_Time: 0.73min---
+2020-12-03 14:21:57,679 ------- Valid: Epoch:133  Valid_Loss:1.177   Valid_Acc: 2.25%-------
+2020-12-03 14:21:57,679 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:22:26,782 Epoch:134  Batch:  0/55  Batch_Loss:1.056  Batch_Accuracy:37.67%     
+2020-12-03 14:22:41,846 ---Epoch:134/180   Avg_Loss:1.055   Epoch_Accuracy:41.55%   Epoch_Time: 0.74min---
+2020-12-03 14:23:09,871 ------- Valid: Epoch:134  Valid_Loss:1.157   Valid_Acc: 2.25%-------
+2020-12-03 14:23:09,871 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:23:38,637 Epoch:135  Batch:  0/55  Batch_Loss:1.047  Batch_Accuracy:42.08%     
+2020-12-03 14:23:53,674 ---Epoch:135/180   Avg_Loss:1.058   Epoch_Accuracy:41.81%   Epoch_Time: 0.73min---
+2020-12-03 14:24:23,335 ------- Valid: Epoch:135  Valid_Loss:1.184   Valid_Acc: 2.25%-------
+2020-12-03 14:24:23,335 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:24:52,006 Epoch:136  Batch:  0/55  Batch_Loss:1.065  Batch_Accuracy:38.72%     
+2020-12-03 14:25:07,179 ---Epoch:136/180   Avg_Loss:1.055   Epoch_Accuracy:42.54%   Epoch_Time: 0.73min---
+2020-12-03 14:25:37,835 ------- Valid: Epoch:136  Valid_Loss:1.183   Valid_Acc: 2.25%-------
+2020-12-03 14:25:37,835 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:26:06,824 Epoch:137  Batch:  0/55  Batch_Loss:1.116  Batch_Accuracy:39.02%     
+2020-12-03 14:26:21,853 ---Epoch:137/180   Avg_Loss:1.053   Epoch_Accuracy:42.93%   Epoch_Time: 0.73min---
+2020-12-03 14:26:48,922 ------- Valid: Epoch:137  Valid_Loss:1.199   Valid_Acc: 2.25%-------
+2020-12-03 14:26:48,922 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:27:16,403 Epoch:138  Batch:  0/55  Batch_Loss:1.068  Batch_Accuracy:45.46%     
+2020-12-03 14:27:30,937 ---Epoch:138/180   Avg_Loss:1.049   Epoch_Accuracy:44.01%   Epoch_Time: 0.70min---
+2020-12-03 14:28:01,768 ------- Valid: Epoch:138  Valid_Loss:1.218   Valid_Acc: 2.25%-------
+2020-12-03 14:28:01,768 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:28:33,403 Epoch:139  Batch:  0/55  Batch_Loss:1.035  Batch_Accuracy:44.78%     
+2020-12-03 14:28:47,756 ---Epoch:139/180   Avg_Loss:1.049   Epoch_Accuracy:44.33%   Epoch_Time: 0.77min---
+2020-12-03 14:29:14,542 ------- Valid: Epoch:139  Valid_Loss:1.215   Valid_Acc: 2.25%-------
+2020-12-03 14:29:14,542 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:29:41,588 Epoch:140  Batch:  0/55  Batch_Loss:1.080  Batch_Accuracy:45.39%     
+2020-12-03 14:29:56,120 ---Epoch:140/180   Avg_Loss:1.046   Epoch_Accuracy:44.97%   Epoch_Time: 0.69min---
+2020-12-03 14:30:23,480 ------- Valid: Epoch:140  Valid_Loss:1.233   Valid_Acc: 2.25%-------
+2020-12-03 14:30:23,480 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:30:51,335 Epoch:141  Batch:  0/55  Batch_Loss:0.989  Batch_Accuracy:47.47%     
+2020-12-03 14:31:05,213 ---Epoch:141/180   Avg_Loss:1.041   Epoch_Accuracy:45.90%   Epoch_Time: 0.70min---
+2020-12-03 14:31:32,652 ------- Valid: Epoch:141  Valid_Loss:1.238   Valid_Acc: 2.25%-------
+2020-12-03 14:31:32,653 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:32:00,830 Epoch:142  Batch:  0/55  Batch_Loss:1.034  Batch_Accuracy:48.15%     
+2020-12-03 14:32:15,535 ---Epoch:142/180   Avg_Loss:1.039   Epoch_Accuracy:46.38%   Epoch_Time: 0.71min---
+2020-12-03 14:32:43,310 ------- Valid: Epoch:142  Valid_Loss:1.245   Valid_Acc: 2.25%-------
+2020-12-03 14:32:43,310 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:33:11,101 Epoch:143  Batch:  0/55  Batch_Loss:1.015  Batch_Accuracy:47.26%     
+2020-12-03 14:33:25,484 ---Epoch:143/180   Avg_Loss:1.037   Epoch_Accuracy:46.81%   Epoch_Time: 0.70min---
+2020-12-03 14:33:53,089 ------- Valid: Epoch:143  Valid_Loss:1.252   Valid_Acc: 2.25%-------
+2020-12-03 14:33:53,089 --------------Best_Epoch: 34    Best_Acc:66.22%--------------
+2020-12-03 14:34:20,844 Epoch:144  Batch:  0/55  Batch_Loss:1.025  Batch_Accuracy:49.52%     
+2020-12-03 14:34:35,942 ---Epoch:144/180   Avg_Loss:1.034   Epoch_Accuracy:47.53%   Epoch_Time: 0.71min---
+2020-12-03 14:35:03,283 ------- Valid: Epoch:144  Valid_Loss:1.264   Valid_Acc: 2.25%-------
+2020-12-03 14:35:03,283 --------------Best_Epoch: 34    Best_Acc:66.22%--------------

@@ -1,5 +1,5 @@
-import _init_paths
-from core.evaluate import accuracy, AverageMeter, FusionMatrix
+from main import _init_paths
+from lib.core.evaluate import accuracy, AverageMeter, FusionMatrix
 
 import numpy as np
 import torch

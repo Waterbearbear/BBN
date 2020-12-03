@@ -1,0 +1,94 @@
+2020-11-30 17:55:22,136 ---------------------Cfg is set as follow--------------------
+2020-11-30 17:55:22,136 BACKBONE:
+  FREEZE: False
+  PRETRAINED_MODEL: 
+  TYPE: bbn_res50
+CLASSIFIER:
+  BIAS: True
+  TYPE: FC
+COLOR_SPACE: RGB
+CPU_MODE: False
+DATASET:
+  DATASET: wisdomTeethSet
+  DATA_TYPE: jpg
+  IMBALANCECIFAR:
+    RANDOM_SEED: 0
+    RATIO: 0.01
+  ROOT: D:\project\zjx\wisdom tooth\data\data_final
+  TRAIN_JSON: ../jsons/wisdomTeeth_train.json
+  VALID_JSON: ../jsons/wisdomTeeth_val.json
+EVAL_MODE: False
+INPUT_SIZE: (224, 224)
+LOSS:
+  CSCE:
+    DRW_EPOCH: 160
+    SCHEDULER: default
+  LDAM:
+    DRW_EPOCH: 160
+    MAX_MARGIN: 0.5
+  LOSS_TYPE: CrossEntropy
+MODULE:
+  TYPE: GAP
+NAME: BBN.wisdomTeeth.res50.180epoch.test3
+OUTPUT_DIR: ../output/wisdomTeeth
+PIN_MEMORY: True
+RESUME_MODE: all
+RESUME_MODEL: 
+SAVE_STEP: 5
+SHOW_STEP: 500
+TEST:
+  BATCH_SIZE: 128
+  MODEL_FILE: ./models/BBN.wisdomTeeth.res50.180epoch.best_model.pth
+  NUM_WORKERS: 16
+TRAIN:
+  BATCH_SIZE: 16
+  COMBINER:
+    TYPE: bbn_mix
+  LR_SCHEDULER:
+    COSINE_DECAY_END: 0
+    LR_FACTOR: 0.1
+    LR_STEP: [120, 160]
+    TYPE: multistep
+    WARM_EPOCH: 5
+  MAX_EPOCH: 180
+  NUM_WORKERS: 16
+  OPTIMIZER:
+    BASE_LR: 0.05
+    MOMENTUM: 0.9
+    TYPE: SGD
+    WEIGHT_DECAY: 0.0001
+  SAMPLER:
+    DUAL_SAMPLER:
+      ENABLE: True
+      TYPE: reverse
+    TYPE: default
+    WEIGHTED_SAMPLER:
+      TYPE: balance
+  SHUFFLE: True
+  TENSORBOARD:
+    ENABLE: False
+TRANSFORMS:
+  PROCESS_DETAIL:
+    RANDOM_CROP:
+      PADDING: 4
+    RANDOM_RESIZED_CROP:
+      RATIO: (0.75, 1.333333333)
+      SCALE: (0.08, 1.0)
+  TEST_TRANSFORMS: ('shorter_resize_for_crop', 'center_crop')
+  TRAIN_TRANSFORMS: ('random_resized_crop', 'random_horizontal_flip')
+VALID_STEP: 1
+2020-11-30 17:55:22,137 -------------------------------------------------------------
+2020-11-30 17:55:23,949 -------------------Train start :bbn_res50  GAP  bbn_mix-------------------
+2020-11-30 17:55:54,584 Epoch:  1  Batch:  0/138  Batch_Loss:2.107  Batch_Accuracy:12.50%     
+2020-11-30 17:56:27,828 ---Epoch:  1/180   Avg_Loss:6.597   Epoch_Accuracy:62.95%   Epoch_Time: 1.06min---
+2020-11-30 17:57:04,400 ------- Valid: Epoch:  1  Valid_Loss:1.827   Valid_Acc:65.48%-------
+2020-11-30 17:57:04,691 --------------Best_Epoch:  1    Best_Acc:65.48%--------------
+2020-11-30 17:57:31,705 Epoch:  2  Batch:  0/138  Batch_Loss:1.100  Batch_Accuracy:50.00%     
+2020-11-30 17:58:05,698 ---Epoch:  2/180   Avg_Loss:1.192   Epoch_Accuracy:65.13%   Epoch_Time: 1.02min---
+2020-11-30 17:58:41,556 ------- Valid: Epoch:  2  Valid_Loss:1.495   Valid_Acc:66.06%-------
+2020-11-30 17:58:41,859 --------------Best_Epoch:  2    Best_Acc:66.06%--------------
+2020-11-30 17:59:08,724 Epoch:  3  Batch:  0/138  Batch_Loss:1.619  Batch_Accuracy:49.99%     
+2020-11-30 17:59:42,871 ---Epoch:  3/180   Avg_Loss:0.932   Epoch_Accuracy:65.21%   Epoch_Time: 1.02min---
+2020-11-30 18:00:19,121 ------- Valid: Epoch:  3  Valid_Loss:1.851   Valid_Acc:66.06%-------
+2020-11-30 18:00:19,122 --------------Best_Epoch:  2    Best_Acc:66.06%--------------
+2020-11-30 18:00:45,168 Epoch:  4  Batch:  0/138  Batch_Loss:0.792  Batch_Accuracy:56.24%     

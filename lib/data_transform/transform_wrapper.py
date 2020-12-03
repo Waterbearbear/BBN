@@ -1,4 +1,4 @@
-from utils.registry import Registry
+from lib.utils.registry import Registry
 import torchvision.transforms as transforms
 
 

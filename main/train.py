@@ -31,7 +31,7 @@ def parse_args():
         "--cfg",
         help="decide which cfg to use",
         required=False,
-        default="configs/cifar10.yaml",
+        default="../configs/wisdomTeeth.yaml",
         type=str,
     )
     parser.add_argument(

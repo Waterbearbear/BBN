@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from backbone import res50, bbn_res50, res32_cifar, bbn_res32_cifar
-from modules import GAP, Identity, FCNorm
+from lib.backbone import res50, bbn_res50, res32_cifar, bbn_res32_cifar
+from lib.modules import GAP, Identity, FCNorm
 
 
 class Network(nn.Module):

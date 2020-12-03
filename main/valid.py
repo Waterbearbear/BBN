@@ -1,14 +1,14 @@
-import _init_paths
-from net import Network
-from config import cfg, update_config
-from dataset import *
+from main import _init_paths
+from lib.net import Network
+from lib.config import cfg, update_config
+from lib.dataset import *
 import numpy as np
 import torch
 import os
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 import argparse
-from core.evaluate import FusionMatrix
+from lib.core.evaluate import FusionMatrix
 
 
 def parse_args():

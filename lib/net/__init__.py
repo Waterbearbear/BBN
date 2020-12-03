@@ -1,1 +1,1 @@
-from net.network import Network
+from lib.net.network import Network
